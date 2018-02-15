@@ -111,3 +111,72 @@ FOREIGN KEY ("physician_id")
   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(3640574263162204935)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mSQL (13.4ms)[0m  [1m[31mDELETE FROM "physicians"[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "appointments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Angela Walker"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:29:35.961935"], ["updated_at", "2018-02-15 18:29:35.961935"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Joanna Shaffer"], ["gender", "female"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:29:35.965445"], ["updated_at", "2018-02-15 18:29:35.965445"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dan Brown"], ["gender", "male"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Rheumatology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:29:35.967991"], ["updated_at", "2018-02-15 18:29:35.967991"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mathias Little"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:29:35.970482"], ["updated_at", "2018-02-15 18:29:35.970482"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Thalia Cobb"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Paediatrics"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:29:35.972872"], ["updated_at", "2018-02-15 18:29:35.972872"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Abdullah Lang"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:29:35.975210"], ["updated_at", "2018-02-15 18:29:35.975210"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mSQL (4.8ms)[0m  [1m[31mDELETE FROM "physicians"[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "appointments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Angela Walker"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:31:20.101543"], ["updated_at", "2018-02-15 18:31:20.101543"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Joanna Shaffer"], ["gender", "female"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:31:20.105368"], ["updated_at", "2018-02-15 18:31:20.105368"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dan Brown"], ["gender", "male"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Rheumatology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:31:20.108205"], ["updated_at", "2018-02-15 18:31:20.108205"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mathias Little"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:31:20.111074"], ["updated_at", "2018-02-15 18:31:20.111074"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Thalia Cobb"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Paediatrics"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:31:20.114375"], ["updated_at", "2018-02-15 18:31:20.114375"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Abdullah Lang"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-15 18:31:20.117528"], ["updated_at", "2018-02-15 18:31:20.117528"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "appointments" ("physician_id", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["physician_id", 13], ["time", "12:00am"], ["created_at", "2018-02-15 18:31:20.155903"], ["updated_at", "2018-02-15 18:31:20.155903"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "appointments" ("physician_id", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["physician_id", 14], ["time", "9:10am"], ["created_at", "2018-02-15 18:31:20.161979"], ["updated_at", "2018-02-15 18:31:20.161979"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "appointments" ("physician_id", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["physician_id", 15], ["time", "4:20pm"], ["created_at", "2018-02-15 18:31:20.165712"], ["updated_at", "2018-02-15 18:31:20.165712"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "appointments" ("physician_id", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["physician_id", 16], ["time", "2:40pm"], ["created_at", "2018-02-15 18:31:20.169157"], ["updated_at", "2018-02-15 18:31:20.169157"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "appointments" ("physician_id", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["physician_id", 17], ["time", "11.15am"], ["created_at", "2018-02-15 18:31:20.172719"], ["updated_at", "2018-02-15 18:31:20.172719"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "appointments" ("physician_id", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["physician_id", 17], ["time", "10.15am"], ["created_at", "2018-02-15 18:31:20.175889"], ["updated_at", "2018-02-15 18:31:20.175889"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "appointments" ("physician_id", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["physician_id", 17], ["time", "11.35am"], ["created_at", "2018-02-15 18:31:20.179153"], ["updated_at", "2018-02-15 18:31:20.179153"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "appointments" ("physician_id", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["physician_id", 18], ["time", "10:30am"], ["created_at", "2018-02-15 18:31:20.182750"], ["updated_at", "2018-02-15 18:31:20.182750"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "appointments" ("physician_id", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["physician_id", 14], ["time", "9.45am"], ["created_at", "2018-02-15 18:31:20.186047"], ["updated_at", "2018-02-15 18:31:20.186047"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
