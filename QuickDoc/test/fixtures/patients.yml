@@ -4,10 +4,10 @@ one:
   name: MyString
   gender: MyString
   age: 1
-  doctor: one
+  physician: one
 
 two:
   name: MyString
   gender: MyString
   age: 1
-  doctor: two
+  physician: two
