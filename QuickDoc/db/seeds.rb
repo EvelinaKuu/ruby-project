@@ -1,5 +1,6 @@
-Physician.delete_all
+Patient.delete_all
 Appointment.delete_all
+Physician.delete_all
 
 
 
@@ -11,12 +12,20 @@ p4 = Physician.create({name: "Mathias Little", specialisation: "Psychiatry", loc
 p5 = Physician.create({name: "Thalia Cobb", specialisation: "Paediatrics", location: "Spitalfields Medical Center", gender: "female", summary: "adlsfjalkflkdsjflajslk"})
 p6 = Physician.create({name: "Abdullah Lang", specialisation: "Obstetrics and gynaecology", location: "Whitechapel Health Centre", gender: "male", summary: "adlsfjalkflkdsjflajslk"})
 
-p1.appointments.create({time: "12:00am"})
-p2.appointments.create({time: "9:10am"})
-p3.appointments.create({time: "4:20pm"})
-p4.appointments.create({time: "2:40pm"})
-p5.appointments.create({time: "11.15am"})
-p5.appointments.create({time: "10.15am"})
-p5.appointments.create({time: "11.35am"})
-p6.appointments.create({time: "10:30am"})
-p2.appointments.create({time: "9.45am"})
+
+r1 = Patient.create({ name: 'Broderick Ferguson', gender: "male", age: 45 })
+r2 = Patient.create({ name: 'Franklin Mayo', gender: "male", age: 21 })
+r3 = Patient.create({ name: 'Amber Davies', gender: "female", age: 25 })
+r4 = Patient.create({ name: 'Leslie Mcdaniel', gender: "female", age: 37 })
+r5 = Patient.create({ name: 'Rory Cruz', gender: "male", age: 82 })
+r6 = Patient.create({ name: 'Alayah Sanfor', gender: "female", age: 75 })
+
+p1.appointments.create({time: "12:00am", appointment_ids: [r1.id]} )
+p2.appointments.create({time: "9:10am", appointment_ids: [r2.id]} )
+p3.appointments.create({time: "4:20pm", appointment_ids: [r1.id]})
+p4.appointments.create({time: "2:40pm", appointment_ids: [r4.id]})
+p5.appointments.create({time: "11.15am", appointment_ids: [r5.id]})
+p5.appointments.create({time: "10.15am", appointment_ids: [r6.id]})
+p5.appointments.create({time: "11.35am", appointment_ids: [r3.id]})
+p6.appointments.create({time: "10:30am", appointment_ids: [r3.id]})
+p2.appointments.create({time: "9.45am", appointment_ids: [r5.id]})
