@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>QuickDoc</title>
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+    $
+    .get('http://localhost:3000/api/appointments')
+    .done(res => {
+      response = res
+      $printarea.text(response[0].name);
+    });
+
+    const $printarea = $('.response');
+
+
+    //instead for views do ejs tags
+
+
+    </script>
+  </body>
+</html>

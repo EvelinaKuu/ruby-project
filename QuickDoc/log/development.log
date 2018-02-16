@@ -363,3 +363,361 @@ Migrating to CreateJoinTablePhysiciansAppointmens (20180215191459)
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/api/appointments" for 127.0.0.1 at 2018-02-16 10:45:00 +0000
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AppointmentsController#index as */*
+  Parameters: {"appointment"=>{}}
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 13.6ms)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3640574263162204935)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPatientIdToAppointments (20180216104912)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.7ms)[0m  [1m[35mALTER TABLE "appointments" ADD "patient_id" integer[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180216104912"]]
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3640574263162204935)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/appointments" for 127.0.0.1 at 2018-02-16 10:52:55 +0000
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AppointmentsController#index as */*
+  Parameters: {"appointment"=>{}}
+  [1m[36mAppointment Load (0.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 7.3ms)
+
+
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (266.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "QuickDoc_development"[0m
+  [1m[35m (247.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "QuickDoc_test"[0m
+  [1m[35m (761.6ms)[0m  [1m[35mCREATE DATABASE "QuickDoc_development" ENCODING = 'unicode'[0m
+  [1m[35m (532.7ms)[0m  [1m[35mCREATE DATABASE "QuickDoc_test" ENCODING = 'unicode'[0m
+  [1m[35m (21.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3640574263162204935)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePhysicians (20180215175247)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "physicians" ("id" bigserial primary key, "name" character varying, "gender" character varying, "location" character varying, "specialisation" character varying, "summary" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180215175247"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAppointments (20180215181728)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "physician_id" bigint, "time" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9c57b861f7"
+FOREIGN KEY ("physician_id")
+  REFERENCES "physicians" ("id")
+)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_appointments_on_physician_id" ON "appointments"  ("physician_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180215181728"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePatients (20180215184115)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "patients" ("id" bigserial primary key, "name" character varying, "gender" character varying, "age" integer, "physician_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_fadcb0ad18"
+FOREIGN KEY ("physician_id")
+  REFERENCES "physicians" ("id")
+)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_patients_on_physician_id" ON "patients"  ("physician_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180215184115"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateJoinTablePhysiciansAppointmens (20180215191459)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "appointments_physicians" ("physician_id" bigint NOT NULL, "appointment_id" bigint NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180215191459"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPatientIdToAppointments (20180216104912)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "appointments" ADD "patient_id" integer[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180216104912"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-02-16 10:53:24.226700"], ["updated_at", "2018-02-16 10:53:24.226700"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3640574263162204935)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "patients"[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "appointments"[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "physicians"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Angela Walker"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:53:24.433665"], ["updated_at", "2018-02-16 10:53:24.433665"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Joanna Shaffer"], ["gender", "female"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:53:24.438140"], ["updated_at", "2018-02-16 10:53:24.438140"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dan Brown"], ["gender", "male"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Rheumatology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:53:24.441313"], ["updated_at", "2018-02-16 10:53:24.441313"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mathias Little"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:53:24.444512"], ["updated_at", "2018-02-16 10:53:24.444512"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Thalia Cobb"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Paediatrics"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:53:24.453817"], ["updated_at", "2018-02-16 10:53:24.453817"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Abdullah Lang"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:53:24.458227"], ["updated_at", "2018-02-16 10:53:24.458227"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/appointments" for 127.0.0.1 at 2018-02-16 10:53:41 +0000
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AppointmentsController#index as */*
+  Parameters: {"appointment"=>{}}
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/api/appointment" for 127.0.0.1 at 2018-02-16 10:53:46 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/appointment"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/api/physicians" for 127.0.0.1 at 2018-02-16 10:53:54 +0000
+Processing by PhysiciansController#index as */*
+  Parameters: {"physician"=>{}}
+  [1m[36mPhysician Load (1.2ms)[0m  [1m[34mSELECT "physicians".* FROM "physicians"[0m
+[active_model_serializers]   [1m[36mAppointment Load (1.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 1]]
+[active_model_serializers]   [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 2]]
+[active_model_serializers]   [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 3]]
+[active_model_serializers]   [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 4]]
+[active_model_serializers]   [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 5]]
+[active_model_serializers]   [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 6]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.1ms)
+Completed 200 OK in 82ms (Views: 69.3ms | ActiveRecord: 41.1ms)
+
+
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "patients"[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "appointments"[0m
+  [1m[35mSQL (19.7ms)[0m  [1m[31mDELETE FROM "physicians"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Angela Walker"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:54:24.024352"], ["updated_at", "2018-02-16 10:54:24.024352"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Joanna Shaffer"], ["gender", "female"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:54:24.028649"], ["updated_at", "2018-02-16 10:54:24.028649"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dan Brown"], ["gender", "male"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Rheumatology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:54:24.031876"], ["updated_at", "2018-02-16 10:54:24.031876"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mathias Little"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:54:24.034859"], ["updated_at", "2018-02-16 10:54:24.034859"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Thalia Cobb"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Paediatrics"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:54:24.037758"], ["updated_at", "2018-02-16 10:54:24.037758"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Abdullah Lang"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:54:24.040967"], ["updated_at", "2018-02-16 10:54:24.040967"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "appointments"[0m
+  [1m[35mSQL (8.2ms)[0m  [1m[31mDELETE FROM "physicians"[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "patients"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Angela Walker"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:55:15.051829"], ["updated_at", "2018-02-16 10:55:15.051829"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Joanna Shaffer"], ["gender", "female"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:55:15.056665"], ["updated_at", "2018-02-16 10:55:15.056665"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dan Brown"], ["gender", "male"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Rheumatology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:55:15.059988"], ["updated_at", "2018-02-16 10:55:15.059988"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mathias Little"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:55:15.063481"], ["updated_at", "2018-02-16 10:55:15.063481"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Thalia Cobb"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Paediatrics"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:55:15.067096"], ["updated_at", "2018-02-16 10:55:15.067096"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Abdullah Lang"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:55:15.070395"], ["updated_at", "2018-02-16 10:55:15.070395"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/api/physicians" for 127.0.0.1 at 2018-02-16 10:55:21 +0000
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhysiciansController#index as */*
+  Parameters: {"physician"=>{}}
+  [1m[36mPhysician Load (0.8ms)[0m  [1m[34mSELECT "physicians".* FROM "physicians"[0m
+[active_model_serializers]   [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 13]]
+[active_model_serializers]   [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 14]]
+[active_model_serializers]   [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 15]]
+[active_model_serializers]   [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 16]]
+[active_model_serializers]   [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 17]]
+[active_model_serializers]   [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 18]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (41.58ms)
+Completed 200 OK in 89ms (Views: 74.5ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/api/patients" for 127.0.0.1 at 2018-02-16 10:55:28 +0000
+Processing by PatientsController#index as */*
+  Parameters: {"patient"=>{}}
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.09ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 38.1ms)
+
+
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "appointments"[0m
+  [1m[35mSQL (4.6ms)[0m  [1m[31mDELETE FROM "physicians"[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "patients"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Angela Walker"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:56:06.223541"], ["updated_at", "2018-02-16 10:56:06.223541"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Joanna Shaffer"], ["gender", "female"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:56:06.228053"], ["updated_at", "2018-02-16 10:56:06.228053"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Dan Brown"], ["gender", "male"], ["location", "Blackfriars Medical Practice"], ["specialisation", "Rheumatology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:56:06.230938"], ["updated_at", "2018-02-16 10:56:06.230938"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Mathias Little"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Psychiatry"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:56:06.233814"], ["updated_at", "2018-02-16 10:56:06.233814"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Thalia Cobb"], ["gender", "female"], ["location", "Spitalfields Medical Center"], ["specialisation", "Paediatrics"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:56:06.236513"], ["updated_at", "2018-02-16 10:56:06.236513"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "physicians" ("name", "gender", "location", "specialisation", "summary", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Abdullah Lang"], ["gender", "male"], ["location", "Whitechapel Health Centre"], ["specialisation", "Obstetrics and gynaecology"], ["summary", "adlsfjalkflkdsjflajslk"], ["created_at", "2018-02-16 10:56:06.239280"], ["updated_at", "2018-02-16 10:56:06.239280"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/api/patients" for 127.0.0.1 at 2018-02-16 10:56:15 +0000
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PatientsController#index as */*
+  Parameters: {"patient"=>{}}
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/api/physician" for 127.0.0.1 at 2018-02-16 10:56:28 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/physician"):
+  
+actionpack (5.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.5) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.5) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.5) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.5) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.5) lib/rails/engine.rb:522:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/api/physicians" for 127.0.0.1 at 2018-02-16 10:56:31 +0000
+Processing by PhysiciansController#index as */*
+  Parameters: {"physician"=>{}}
+  [1m[36mPhysician Load (1.5ms)[0m  [1m[34mSELECT "physicians".* FROM "physicians"[0m
+[active_model_serializers]   [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 19]]
+[active_model_serializers]   [1m[36mAppointment Load (0.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 20]]
+[active_model_serializers]   [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 21]]
+[active_model_serializers]   [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 22]]
+[active_model_serializers]   [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 23]]
+[active_model_serializers]   [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."physician_id" = $1[0m  [["physician_id", 24]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (42.7ms)
+Completed 200 OK in 95ms (Views: 76.3ms | ActiveRecord: 55.1ms)
+
+

@@ -1,7 +1,6 @@
-Patient.delete_all
 Appointment.delete_all
 Physician.delete_all
-
+Patient.delete_all
 
 
 
@@ -19,13 +18,13 @@ r3 = Patient.create({ name: 'Amber Davies', gender: "female", age: 25 })
 r4 = Patient.create({ name: 'Leslie Mcdaniel', gender: "female", age: 37 })
 r5 = Patient.create({ name: 'Rory Cruz', gender: "male", age: 82 })
 r6 = Patient.create({ name: 'Alayah Sanfor', gender: "female", age: 75 })
-
-p1.appointments.create({time: "12:00am", appointment_ids: [r1.id]} )
-p2.appointments.create({time: "9:10am", appointment_ids: [r2.id]} )
-p3.appointments.create({time: "4:20pm", appointment_ids: [r1.id]})
-p4.appointments.create({time: "2:40pm", appointment_ids: [r4.id]})
-p5.appointments.create({time: "11.15am", appointment_ids: [r5.id]})
-p5.appointments.create({time: "10.15am", appointment_ids: [r6.id]})
-p5.appointments.create({time: "11.35am", appointment_ids: [r3.id]})
-p6.appointments.create({time: "10:30am", appointment_ids: [r3.id]})
-p2.appointments.create({time: "9.45am", appointment_ids: [r5.id]})
+#
+# p1.appointments.create({time: "12:00am", patient_id: r1.id } )
+# p2.appointments.create({time: "9:10am", patient_id: r2.id } )
+# p3.appointments.create({time: "4:20pm", patient_id: r1.id })
+# p4.appointments.create({time: "2:40pm", patient_id: r4.id })
+# p5.appointments.create({time: "11.15am", patient_id: r5.id })
+# p5.appointments.create({time: "10.15am", patient_id: r6.id })
+# p5.appointments.create({time: "11.35am", patient_id: r3.id })
+# p6.appointments.create({time: "10:30am", patient_id: r3.id })
+# p2.appointments.create({time: "9.45am", patient_id: r5.id })
